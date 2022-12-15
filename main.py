@@ -17,7 +17,7 @@ intent.messages = True
 client = discord.Client(intents=intent)
 
 command = False
-helpmsg = 'Here is a list of commands for you losers to use. (Version 1)\n\n1. /bmbot adduser {name_to_be_used} {ping the person}\nExplanation: This creates an account for the user so mentions can be stored.\n\n2. /bmbot addmentionmsg {name_to_be_used} {msg}\nExplanation: Adds the mention msg when the user is pinged\n\n3. /bmbot listmentionmsg {name_of_user} \nExplanation: This lists all the possible mention messages the account has.\n\n4. /bmbot deletementionmsg {name} {position}\nExplanation:Deletes a mention message, refer to listing to decide which mention to remove. 
+helpmsg = 'Here is a list of commands for you losers to use. (Version 1)\n\n1. /bmbot adduser {name_to_be_used} {ping the person}\nExplanation: This creates an account for the user so mentions can be stored.\n\n2. /bmbot addmentionmsg {name_to_be_used} {msg}\nExplanation: Adds the mention msg when the user is pinged\n\n3. /bmbot listmentionmsg {name_of_user} \nExplanation: This lists all the possible mention messages the account has.\n\n4. /bmbot deletementionmsg {name} {position}\nExplanation:Deletes a mention message, refer to listing to decide which mention to remove.' 
 
 def addDiscordUser(id,name):
   if id not in db.keys():
