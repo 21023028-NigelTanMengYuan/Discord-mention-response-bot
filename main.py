@@ -17,7 +17,7 @@ intent.messages = True
 client = discord.Client(intents=intent)
 
 command = False
-helpmsg = 'Here is a list of commands for you losers to use. (Version 1)\n\n1. /bmbot adduser {name_to_be_used} {ping the person}\nExplanation: This creates an account for the user so mentions can be stored.\n\n2. /bmbot addmentionmsg {name_to_be_used} {msg}\nExplanation: Adds the mention msg when the user is pinged\n\n3. /bmbot listmentionmsg {name_of_user} \nExplanation: This lists all the possible mention messages the account has.\n\n4. /bmbot deletementionmsg {name} {position}\nExplanation:Deletes a mention message, refer to listing to decide which mention to remove.\n\n(Version 2)\nDiscord bot should now be able to detect if cx is streaming on twitch (Only cx for now, no function to add others will be included due to lack of time.)\n\n(Version 3)\nSend msg when certain users are playing games'
+helpmsg = 'Here is a list of commands for you losers to use. (Version 1)\n\n1. /bmbot adduser {name_to_be_used} {ping the person}\nExplanation: This creates an account for the user so mentions can be stored.\n\n2. /bmbot addmentionmsg {name_to_be_used} {msg}\nExplanation: Adds the mention msg when the user is pinged\n\n3. /bmbot listmentionmsg {name_of_user} \nExplanation: This lists all the possible mention messages the account has.\n\n4. /bmbot deletementionmsg {name} {position}\nExplanation:Deletes a mention message, refer to listing to decide which mention to remove. 
 
 def addDiscordUser(id,name):
   if id not in db.keys():
