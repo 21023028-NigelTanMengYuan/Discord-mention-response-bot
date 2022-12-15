@@ -10,6 +10,9 @@ I personally hosted the code on replit so that it is free. So most of my knowled
 After you have imported the code from replit and started running it, it will open a webview/server , in which you can use an external service to ping it so the code on 
 replit will continue running. I use uptimerobot.
 
+If you wish to change the command of the code from bmbot to something else, simply modify it in the client event in main.py
+Do note that due to how replit works, the last paragraph of code in main.py (os.getenv) is the line which is used to get the token, please replace that line with your token via an env file or create a secret in replit accordingly.
+
 Here are the main commands the bot can use 
 
 1. /bmbot adduser {name_to_be_used} {ping the person}
