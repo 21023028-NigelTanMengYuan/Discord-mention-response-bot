@@ -18,6 +18,7 @@ client = discord.Client(intents=intent)
 
 command = False
 helpmsg = 'Here is a list of commands for you losers to use. (Version 1)\n\n1. /bmbot adduser {name_to_be_used} {ping the person}\nExplanation: This creates an account for the user so mentions can be stored.\n\n2. /bmbot addmentionmsg {name_to_be_used} {msg}\nExplanation: Adds the mention msg when the user is pinged\n\n3. /bmbot listmentionmsg {name_of_user} \nExplanation: This lists all the possible mention messages the account has.\n\n4. /bmbot deletementionmsg {name} {position}\nExplanation:Deletes a mention message, refer to listing to decide which mention to remove.' 
+ignorelist = ['whoalive'] #bmbot option that you want ignored (not to trigger the command not found) e.g if i use /bmbot whoalive, it will not trigger not found
 
 def addDiscordUser(id,name):
   if id not in db.keys():
@@ -89,31 +90,33 @@ async def on_message(message): #check if the msg is sent by the bot itself
   if message.author == client.user:
     return
 
-  if client.user.mentioned_in(message):
+  elif client.user.mentioned_in(message):
     await message.channel.send('Leave me alone, I\'m watching loli hentai.')
   
-  if message.content.startswith('/bmbot'): 
+  elif message.content.startswith('/bmbot'): 
     command = True
+    response = 'No such command found'
     msg = message.content.split()
     if msg[1] == 'adduser':
-      msg = addDiscordUser(msg[3][2:20], msg[2])
+      response = addDiscordUser(msg[3][2:20], msg[2])
 
-    if msg[1] == 'addmentionmsg':
+    elif msg[1] == 'addmentionmsg':
       stringMsg = " ".join(msg[3:])
       id = get_id(msg[2])
-      msg = add_mentionsMsg(id,stringMsg)
+      response = add_mentionsMsg(id,stringMsg)
 
-    if msg[1] == 'deletementionmsg':
+    elif msg[1] == 'deletementionmsg':
       id = get_id(msg[2])
-      msg = delete_mentionsMsg(id,int(msg[3]))
+      response = delete_mentionsMsg(id,int(msg[3]))
       
-    if msg[1] == 'listmentionmsg':
+    elif msg[1] == 'listmentionmsg':
       id = get_id(msg[2])
-      msg = listallmention(id)
-    if msg[1] == 'help':
-      msg = helpmsg
-      
-    await message.channel.send(msg)
+      response = listallmention(id)
+    elif msg[1] == 'help':
+      response = helpmsg
+
+    if msg[1] not in ignorelist: #just in case there may be some commands that you don not want to trigger the no such command response
+      await message.channel.send(response)
 
   else:
     command = False
