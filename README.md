@@ -27,3 +27,10 @@ Explanation: This lists all the possible mention messages the account has.
 4. /bmbot deletementionmsg {name} {position}
 Explanation:Deletes a mention message, refer to listing to decide which mention to remove.
 
+# Deployment guide
+This code was initially meant to be able to be directly copied and used onto replit, however with the changes of replit now neededing payment method of sorts to keep it going continously, you can either self host and run the files yourself, or look for alterntive services.
+
+Note: The main python files are main.py and keep_alive.py
+
+Extra notes: the code was intially designed for replit, depending on where you are hosting your code, you will need to modify your own code (specifically the os.get secrets since that was designed for replit)
+
